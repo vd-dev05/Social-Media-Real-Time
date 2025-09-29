@@ -1,6 +1,4 @@
 import express from "express";
-import mongoose from "mongoose";
-import pg from "pg";
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
@@ -16,6 +14,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger);
+
+
 
 Object.values(EndpointRouterV1).forEach(ep => {
   app.use('/api/v1' + ep.path, ep.router);

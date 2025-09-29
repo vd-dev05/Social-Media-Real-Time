@@ -1,3 +1,38 @@
+Test ap file for API endpoints
+## Test for root endpoint
+### Get Root
+GET http://localhost:5000/
+Content-Type: application/json
+Accept: application/json
+
+## Test for fetching users
+### Fetch Users
 GET http://localhost:5000/api/v1/users/
 Content-Type: application/json
 Accept: application/json
+
+
+## Create a new user
+### Create User
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "testuser",
+    "email": "testuser@example.com",
+    "password": "yourpassword"
+}
+
+## Login with existing user
+### User Login
+
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "testuser",
+    "email": "nguyenvana@example.com",
+    "password": "yourpassword"
+}

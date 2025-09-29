@@ -1,18 +1,18 @@
-import { pgNodejs } from '@/config/postgres.js'
+import { dbPostgres } from '@/config/postgres.js'
 
 export const UserModel = {
   async createUser({ name, email, password_hash }) {
-    const [user] = await pgNodejs('users')
+    const [user] = await dbPostgres('users')
       .insert({ name, email, password_hash })
       .returning(['id', 'name', 'email', 'avatar_url', 'role'])
     return user
   },
 
   async findByEmail(email) {
-    return await pgNodejs('users').where({ email }).first()
+    return await dbPostgres('users').where({ email }).first()
   },
 
   async findById(id) {
-    return await pgNodejs('users').where({ id }).first()
+    return await dbPostgres('users').where({ id }).first()
   }
 }
