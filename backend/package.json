@@ -2,14 +2,17 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
+  "type": "c",
   "scripts": {
     "dev": "babel-node --watch src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+  "migrate": "knex --knexfile ./src/config/knexfile.cjs migrate:latest"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fingerprintjs/fingerprintjs-pro": "^3.12.2",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "bson": "^6.10.4",
@@ -22,12 +25,15 @@
     "dayjs": "^1.11.18",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
+    "i": "^0.3.7",
     "jsonwebtoken": "^9.0.2",
     "knex": "^3.1.0",
     "module-alias": "^1.0.10",
     "mongoose": "^8.18.2",
     "multer": "^2.0.2",
-    "pg": "^8.16.3"
+    "npm": "^11.6.1",
+    "pg": "^8.16.3",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",

@@ -5,6 +5,7 @@ import { UserModel } from '@/models/postgres/user.model.js'
 export const AuthService = {
   async register({ name, email, password }) {
     const existed = await UserModel.findByEmail(email)
+
     if (existed) throw new Error('Email đã tồn tại')
 
     const password_hash = await bcrypt.hash(password, 10)
@@ -13,11 +14,14 @@ export const AuthService = {
   },
 
   async login({ email, password }) {
+  
     const user = await UserModel.findByEmail(email)
+   
+    
     if (!user) throw new Error('Email không tồn tại')
 
-    // const isMatch = await bcrypt.compare(password, user.password_hash)
-    // if (!isMatch) throw new Error('Mật khẩu sai')
+    const isMatch = await bcrypt.compare(password, user.password_hash)
+    if (!isMatch) throw new Error('Mật khẩu sai')
 
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role },

@@ -1,4 +1,4 @@
-import { dbPostgres } from '@/config/postgres.js'
+import  dbPostgres ,{  client } from '@/config/postgres.js'
 
 export const UserModel = {
   async createUser({ name, email, password_hash }) {

@@ -3,8 +3,9 @@
 import config from '@/config/knexfile.js'
 import knex from 'knex'
 
-const dbPostgres =  knex(config);
+// Initialize a PostgreSQL client to test the connection
 
+const dbPostgres =  knex(config[process.env.NODE_ENV || 'development']);
 
 dbPostgres.raw('SELECT 1')
   .then(() => console.log('✅ Connected PostgreSQL successfully'))
