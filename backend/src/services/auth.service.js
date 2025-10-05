@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import { UserModel } from '@/models/postgres/user.model.js'
 
 export const AuthService = {
-  async register({ name, email, password }) {
+  async register({ name, email, password, type ,record  }) {
     const existed = await UserModel.findByEmail(email)
 
     if (existed) throw new Error('Email đã tồn tại')

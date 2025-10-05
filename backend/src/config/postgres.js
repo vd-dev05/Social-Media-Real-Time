@@ -1,6 +1,6 @@
 // // /config/postgres.js
 
-import config from '@/config/knexfile.js'
+import config from '@/config/knexfile.cjs'
 import knex from 'knex'
 
 // Initialize a PostgreSQL client to test the connection
