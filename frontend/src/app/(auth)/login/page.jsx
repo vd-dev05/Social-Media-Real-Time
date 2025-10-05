@@ -18,21 +18,22 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
     setLoading(true);
-    const { email, password } = form;
+    // const { email, password } = form;
 
-    const { data, error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
+    // const { data, error } = await supabase.auth.signInWithPassword({
+    //   email,
+    //   password,
+    // });
+      router.push("/feed");
 
     setLoading(false);
 
-    if (error) {
-      setError(error.message);
-    } else {
-      console.log("✅ Logged in:", data.user.email);
-      router.push("/feed");
-    }
+    // if (error) {
+    //   setError(error.message);
+    // } else {
+    //   console.log("✅ Logged in:", data.user.email);
+    //   router.push("/feed");
+    // }
   };
 
   return (
